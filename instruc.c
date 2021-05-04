@@ -6,11 +6,30 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 11:25:37 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/04/30 13:27:32 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/04 11:41:54 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	double_instruc(s_push_swap *ps)
+{
+	if (!ft_strcmp(ps->instruc, "ss"))
+	{
+		swap(&ps->stack_a, NULL);
+		swap(&ps->stack_b, NULL);
+	}
+	else if (!ft_strcmp(ps->instruc, "rr"))
+	{
+		rotate(&ps->stack_a, NULL);
+		rotate(&ps->stack_b, NULL);
+	}
+	else if (!ft_strcmp(ps->instruc, "rrr"))
+	{
+		reverse_rotate(&ps->stack_a, NULL);
+		reverse_rotate(&ps->stack_b, NULL);
+	}
+}
 
 void	swap(s_stack **stack, char *output)
 {

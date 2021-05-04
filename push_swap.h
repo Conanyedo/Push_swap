@@ -6,7 +6,7 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:20:59 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/02 16:04:36 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/04 12:19:29 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@
 #include "Libft/libft.h"
 #include <unistd.h>
 #include <stdlib.h>
-
-typedef struct	t_median
-{
-	char			*med;
-	char			*max;
-	struct t_median	*next;
-}				s_median;
+#include<stdio.h>
 
 typedef struct	t_stack
 {
@@ -34,15 +28,19 @@ typedef struct	t_push_swap
 {
 	s_stack		*stack_a;
 	s_stack		*stack_b;
-	s_median	*median;
+	char		**medians;
+	int			median;
 	char		**stack;
 	char		**sorted;
 	char		*instruc;
 	int			len;
 	int			max_len;
-	int			num;
+	int			add;
+	int			div;
+	char		*max;
 	int			v_option;
 	int			s_option;
+	int			c_option;
 }				s_push_swap;
 
 
@@ -51,6 +49,8 @@ void	checker(s_push_swap *ps);
 int		is_digit(char *str);
 int		is_dup(s_stack *stack, char *str);
 void	ft_free(char ***arr);
+void	options(s_push_swap *ps, char ***av);
+void	c_options(s_push_swap *ps, char ***av);
 
 //Stack
 void	listtoarray(char ***arr, s_stack *stack);
@@ -66,6 +66,7 @@ void	swap(s_stack **stack, char *output);
 void	push(s_stack **pop, s_stack **push, char *output);
 void	rotate(s_stack **stack, char *output);
 void	reverse_rotate(s_stack **stack, char *output);
+void	double_instruc(s_push_swap *ps);
 
 //Sorting
 void	sorting(s_push_swap *ps);
@@ -76,14 +77,20 @@ int		is_sorted(char **arr);
 int		is_stack_sorted(s_stack *stack);
 
 //Cases
-void	case_of_two(s_push_swap *ps);
 void	case_of_three(s_stack **stack);
-void	case_of_four(s_push_swap *ps);
 void	case_of_five(s_push_swap *ps);
-void	case_of_hundred(s_push_swap *ps);
+void	more_than_five(s_push_swap *ps);
+
+//Cases_tools
+void	get_max(s_stack *stack, char **max);
+int		which_half_equals(s_stack *stack, char *max);
+int		which_half_smaller(s_stack *stack, char *median);
+int		smaller_than(s_stack *stack, char *median);
+
 
 //Utils
 void	print_stacks(s_push_swap *ps, char *instruc);
 void	exit_msg(s_push_swap *ps, char *str, int fd, int status);
+void	clear(s_push_swap *ps);
 
 #endif

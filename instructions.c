@@ -6,11 +6,23 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:18:38 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/02 14:05:51 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/04 12:17:10 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	clear(s_push_swap *ps)
+{
+	int		len;
+
+	len = ps->len + 4;
+	if (is_stack_sorted(ps->stack_a) && !ps->stack_b)
+		return ;
+	sleep(1);
+	while (len--)
+		ft_putstr_fd("\033[1A\r\033[K", 1);
+}
 
 void	instructions(s_push_swap *ps)
 {
@@ -19,10 +31,7 @@ void	instructions(s_push_swap *ps)
 	else if (!ft_strcmp(ps->instruc, "sb"))
 		swap(&ps->stack_b, NULL);
 	else if (!ft_strcmp(ps->instruc, "ss"))
-	{
-		swap(&ps->stack_a, NULL);
-		swap(&ps->stack_b, NULL);
-	}
+		double_instruc(ps);
 	else if (!ft_strcmp(ps->instruc, "pa"))
 		push(&ps->stack_b, &ps->stack_a, NULL);
 	else if (!ft_strcmp(ps->instruc, "pb"))
@@ -32,10 +41,7 @@ void	instructions(s_push_swap *ps)
 	else if (!ft_strcmp(ps->instruc, "rb"))
 		rotate(&ps->stack_b, NULL);
 	else
-	{
 		instruction(ps);
-		return ;
-	}
 	if (ps->v_option || ps->s_option)
 		print_stacks(ps, ps->instruc);
 }
@@ -43,28 +49,20 @@ void	instructions(s_push_swap *ps)
 void	instruction(s_push_swap *ps)
 {
 	if (!ft_strcmp(ps->instruc, "rr"))
-	{
-		rotate(&ps->stack_a, NULL);
-		rotate(&ps->stack_b, NULL);
-	}
+		double_instruc(ps);
 	else if (!ft_strcmp(ps->instruc, "rra"))
 		reverse_rotate(&ps->stack_a, NULL);
 	else if (!ft_strcmp(ps->instruc, "rrb"))
 		reverse_rotate(&ps->stack_b, NULL);
 	else if (!ft_strcmp(ps->instruc, "rrr"))
-	{
-		reverse_rotate(&ps->stack_a, NULL);
-		reverse_rotate(&ps->stack_b, NULL);
-	}
+		double_instruc(ps);
 	else if (!*ps->instruc)
 	{
 		if (is_stack_sorted(ps->stack_a) && !ps->stack_b)
-			exit_msg(ps, "\033[1;32mOK\033[0m\n", 1, 0);
+			exit_msg(ps, "OK\033[0m\n", 1, 0);
 		else
-			exit_msg(ps, "\033[1;31mKO\033[0m\n", 1, 1);
+			exit_msg(ps, "KO\033[0m\n", 1, 1);
 	}
 	else
-		exit_msg(ps, "\033[1;31mError\033[0m\n", 2, 1);
-	if (ps->v_option || ps->s_option)
-		print_stacks(ps, ps->instruc);
+		exit_msg(ps, "Error\033[0m\n", 2, 1);
 }

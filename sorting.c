@@ -6,7 +6,7 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:59:35 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/02 14:32:13 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/04 11:55:33 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,23 @@ void	quicksort(char ***arr, int l, int r)
 
 void	sorting(s_push_swap *ps)
 {
-	int		len;
+	s_stack		*list;
+	int			len;
 
 	if (ps->len == 1 || is_stack_sorted(ps->stack_a))
 	{
 		free_stack(&ps->stack_a);
 		exit (0);
 	}
-	listtoarray(&ps->stack, ps->stack_a);
-	len = -1;
+	len = 0;
 	ps->sorted = (char **)malloc(sizeof(char *) * (ps->len + 1));
-	while (ps->stack[++len])
-		ps->sorted[len] = ft_strdup(ps->stack[len]);
+	list = ps->stack_a;
+	while (list)
+	{
+		ps->sorted[len] = ft_strdup(list->node);
+		len++;
+		list = list->next;
+	}
 	ps->sorted[len] = NULL;
 	quicksort(&ps->sorted, 0, len - 1);
-	ft_free(&ps->stack);
 }

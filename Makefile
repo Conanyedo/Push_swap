@@ -6,7 +6,7 @@
 #    By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 13:39:50 by ybouddou          #+#    #+#              #
-#    Updated: 2021/04/30 15:05:22 by ybouddou         ###   ########.fr        #
+#    Updated: 2021/05/04 11:01:49 by ybouddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC =	check.c\
 		stack.c\
 		instruc.c\
 		cases.c\
+		cases_tools.c\
 
 SRC1 = checker.c\
 
