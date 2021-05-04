@@ -6,7 +6,7 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 15:00:59 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 11:56:03 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/04 13:10:22 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	more_than_five(s_push_swap *ps)
 		ps->median = ps->len / 2;
 	else if (ps->len <= 100)
 		ps->median = ps->len / 7;
-	else if (ps->len <= 500)
+	else
 		ps->median = ps->len / 12;
 	ps->div = (ps->len / ps->median);
 	ps->medians = (char **)malloc(sizeof(char *) * (ps->div + 1));
