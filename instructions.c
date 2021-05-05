@@ -6,25 +6,25 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:18:38 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 12:17:10 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:23:29 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	clear(s_push_swap *ps)
+void	clear(t_push_swap *ps)
 {
 	int		len;
 
 	len = ps->len + 4;
-	if (is_stack_sorted(ps->stack_a) && !ps->stack_b)
+	if (it_stack_sorted(ps->stack_a) && !ps->stack_b)
 		return ;
 	sleep(1);
 	while (len--)
 		ft_putstr_fd("\033[1A\r\033[K", 1);
 }
 
-void	instructions(s_push_swap *ps)
+void	instructions(t_push_swap *ps)
 {
 	if (!ft_strcmp(ps->instruc, "sa"))
 		swap(&ps->stack_a, NULL);
@@ -46,7 +46,7 @@ void	instructions(s_push_swap *ps)
 		print_stacks(ps, ps->instruc);
 }
 
-void	instruction(s_push_swap *ps)
+void	instruction(t_push_swap *ps)
 {
 	if (!ft_strcmp(ps->instruc, "rr"))
 		double_instruc(ps);
@@ -58,7 +58,7 @@ void	instruction(s_push_swap *ps)
 		double_instruc(ps);
 	else if (!*ps->instruc)
 	{
-		if (is_stack_sorted(ps->stack_a) && !ps->stack_b)
+		if (it_stack_sorted(ps->stack_a) && !ps->stack_b)
 			exit_msg(ps, "OK\033[0m\n", 1, 0);
 		else
 			exit_msg(ps, "KO\033[0m\n", 1, 1);

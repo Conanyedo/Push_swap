@@ -6,15 +6,15 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:55:52 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 11:36:42 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:23:35 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(s_stack **stack)
+void	free_stack(t_stack **stack)
 {
-	s_stack	*prev;
+	t_stack	*prev;
 
 	if (!(*stack))
 		return ;
@@ -27,9 +27,9 @@ void	free_stack(s_stack **stack)
 	}
 }
 
-void	listtoarray(char ***arr, s_stack *stack)
+void	listtoarray(char ***arr, t_stack *stack)
 {
-	s_stack		*list;
+	t_stack		*list;
 	int			i;
 
 	i = 0;
@@ -44,9 +44,9 @@ void	listtoarray(char ***arr, s_stack *stack)
 	(*arr)[i] = NULL;
 }
 
-int	stacksize(s_stack *stack)
+int	stacksize(t_stack *stack)
 {
-	s_stack	*list;
+	t_stack	*list;
 	int		i;
 
 	i = 0;
@@ -60,7 +60,7 @@ int	stacksize(s_stack *stack)
 	return (i);
 }
 
-void	split_arg(s_push_swap *ps, s_stack **list, char *arr)
+void	split_arg(t_push_swap *ps, t_stack **list, char *arr)
 {
 	char	**split;
 	int		i;
@@ -75,19 +75,19 @@ void	split_arg(s_push_swap *ps, s_stack **list, char *arr)
 		i++;
 		if (!split[i])
 			break ;
-		(*list)->next = (s_stack *)malloc(sizeof(s_stack));
+		(*list)->next = (t_stack *)malloc(sizeof(t_stack));
 		(*list) = (*list)->next;
 	}
 	ft_free(&split);
 }
 
-void	create_stack(s_push_swap *ps, char **av)
+void	create_stack(t_push_swap *ps, char **av)
 {
-	s_stack		*list;
+	t_stack		*list;
 	int			i;
 
 	i = 0;
-	ps->stack_a = (s_stack *)malloc(sizeof(s_stack));
+	ps->stack_a = (t_stack *)malloc(sizeof(t_stack));
 	ps->stack_a->next = NULL;
 	list = ps->stack_a;
 	while (av[i])
@@ -96,7 +96,7 @@ void	create_stack(s_push_swap *ps, char **av)
 		i++;
 		if (!av[i])
 			break ;
-		list->next = (s_stack *)malloc(sizeof(s_stack));
+		list->next = (t_stack *)malloc(sizeof(t_stack));
 		list = list->next;
 	}
 	list->next = NULL;

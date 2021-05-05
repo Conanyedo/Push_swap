@@ -6,13 +6,13 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 10:53:22 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 11:55:38 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:22:49 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	get_max(s_stack *stack, char **max)
+void	get_max(t_stack *stack, char **max)
 {
 	if (!stack)
 		return ;
@@ -28,7 +28,7 @@ void	get_max(s_stack *stack, char **max)
 	}
 }
 
-int	which_half_equals(s_stack *stack, char *max)
+int	which_half_equals(t_stack *stack, char *max)
 {
 	int		len;
 	int		i;
@@ -47,7 +47,7 @@ int	which_half_equals(s_stack *stack, char *max)
 	return (0);
 }
 
-int	which_half_smaller(s_stack *stack, char *median)
+int	which_half_smaller(t_stack *stack, char *median)
 {
 	int		len;
 	int		i;
@@ -66,7 +66,7 @@ int	which_half_smaller(s_stack *stack, char *median)
 	return (0);
 }
 
-int	smaller_than(s_stack *stack, char *median)
+int	smaller_than(t_stack *stack, char *median)
 {
 	while (stack)
 	{

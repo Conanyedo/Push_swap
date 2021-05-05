@@ -6,7 +6,7 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:00:41 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 12:12:37 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:26:06 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ int	is_sorted(char **arr)
 	return (1);
 }
 
-int	is_stack_sorted(s_stack *stack)
+int	it_stack_sorted(t_stack *stack)
 {
-	s_stack		*list;
-
-	list = stack;
 	if (!stack)
 		return (0);
 	while (stack)
@@ -46,9 +43,9 @@ int	is_stack_sorted(s_stack *stack)
 	return (1);
 }
 
-int	is_dup(s_stack *stack, char *str)
+int	is_dup(t_stack *stack, char *str)
 {
-	s_stack		*list;
+	t_stack		*list;
 	int			c;
 
 	c = 0;
@@ -80,9 +77,9 @@ int	is_digit(char *str)
 	return (1);
 }
 
-void	checker(s_push_swap *ps)
+void	checker(t_push_swap *ps)
 {
-	s_stack		*list;
+	t_stack		*list;
 
 	list = ps->stack_a;
 	while (list)

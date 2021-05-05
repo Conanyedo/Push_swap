@@ -6,13 +6,13 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 11:25:37 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 11:41:54 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:23:29 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	double_instruc(s_push_swap *ps)
+void	double_instruc(t_push_swap *ps)
 {
 	if (!ft_strcmp(ps->instruc, "ss"))
 	{
@@ -31,9 +31,9 @@ void	double_instruc(s_push_swap *ps)
 	}
 }
 
-void	swap(s_stack **stack, char *output)
+void	swap(t_stack **stack, char *output)
 {
-	s_stack	*list;
+	t_stack	*list;
 	char	*tmp;
 
 	if (!(*stack) || !(*stack)->next)
@@ -49,16 +49,16 @@ void	swap(s_stack **stack, char *output)
 		ft_putstr_fd(output, 1);
 }
 
-void	push(s_stack **pop, s_stack **push, char *output)
+void	push(t_stack **pop, t_stack **push, char *output)
 {
-	s_stack		*tmp;
-	s_stack		*node;
+	t_stack		*tmp;
+	t_stack		*node;
 
 	if (!*pop)
 		return ;
 	tmp = (*pop);
 	(*pop) = (*pop)->next;
-	node = (s_stack *)malloc(sizeof(s_stack));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	node->node = ft_strdup(tmp->node);
 	node->next = (*push);
 	(*push) = node;
@@ -68,17 +68,17 @@ void	push(s_stack **pop, s_stack **push, char *output)
 		ft_putstr_fd(output, 1);
 }
 
-void	rotate(s_stack **stack, char *output)
+void	rotate(t_stack **stack, char *output)
 {
-	s_stack		*node;
-	s_stack		*last;
-	s_stack		*tmp;
+	t_stack		*node;
+	t_stack		*last;
+	t_stack		*tmp;
 
 	if (!*stack || !(*stack)->next)
 		return ;
 	tmp = (*stack);
 	(*stack) = (*stack)->next;
-	node = (s_stack *)malloc(sizeof(s_stack));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	node->node = ft_strdup(tmp->node);
 	node->next = NULL;
 	last = (*stack);
@@ -91,11 +91,11 @@ void	rotate(s_stack **stack, char *output)
 		ft_putstr_fd(output, 1);
 }
 
-void	reverse_rotate(s_stack **stack, char *output)
+void	reverse_rotate(t_stack **stack, char *output)
 {
-	s_stack		*node;
-	s_stack		*last;
-	s_stack		*prev;
+	t_stack		*node;
+	t_stack		*last;
+	t_stack		*prev;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -106,7 +106,7 @@ void	reverse_rotate(s_stack **stack, char *output)
 		last = last->next;
 	}
 	prev->next = NULL;
-	node = (s_stack *)malloc(sizeof(s_stack));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	node->node = ft_strdup(last->node);
 	node->next = (*stack);
 	(*stack) = node;

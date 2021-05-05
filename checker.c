@@ -6,13 +6,13 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:25:02 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 12:29:10 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:23:28 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	options(s_push_swap *ps, char ***av)
+void	options(t_push_swap *ps, char ***av)
 {
 	(*av)++;
 	if (!ft_strcmp((*av)[0], "-c"))
@@ -39,13 +39,13 @@ void	options(s_push_swap *ps, char ***av)
 
 int	main(int ac, char **av)
 {
-	s_push_swap	ps;
+	t_push_swap	ps;
 
 	if (ac == 1)
 		return (0);
-	ps.stack_a = (s_stack *){0};
-	ps.stack_b = (s_stack *){0};
-	ps = (s_push_swap){0};
+	ps.stack_a = (t_stack *){0};
+	ps.stack_b = (t_stack *){0};
+	ps = (t_push_swap){0};
 	options(&ps, &av);
 	if (!av[0])
 		return (0);

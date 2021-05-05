@@ -6,7 +6,7 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:59:35 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 11:55:33 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:23:34 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ void	quicksort(char ***arr, int l, int r)
 	quicksort(arr, pivot + 1, r);
 }
 
-void	sorting(s_push_swap *ps)
+void	sorting(t_push_swap *ps)
 {
-	s_stack		*list;
+	t_stack		*list;
 	int			len;
 
-	if (ps->len == 1 || is_stack_sorted(ps->stack_a))
+	if (ps->len == 1 || it_stack_sorted(ps->stack_a))
 	{
 		free_stack(&ps->stack_a);
 		exit (0);

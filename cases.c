@@ -6,13 +6,13 @@
 /*   By: ybouddou <ybouddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 15:00:59 by ybouddou          #+#    #+#             */
-/*   Updated: 2021/05/04 13:10:22 by ybouddou         ###   ########.fr       */
+/*   Updated: 2021/05/05 13:23:26 by ybouddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_of_three(s_stack **stack)
+void	case_of_three(t_stack **stack)
 {
 	if ((ft_atoi((*stack)->node) < ft_atoi((*stack)->next->node) && \
 		(ft_atoi((*stack)->next->node) > ft_atoi((*stack)->next->next->node))) && \
@@ -39,7 +39,7 @@ void	case_of_three(s_stack **stack)
 	}
 }
 
-void	loop_stack(s_push_swap *ps, char *pivot)
+void	loop_stack(t_push_swap *ps, char *pivot)
 {
 	while (smaller_than(ps->stack_a, pivot))
 	{
@@ -52,7 +52,7 @@ void	loop_stack(s_push_swap *ps, char *pivot)
 	}
 }
 
-void	case_of_five(s_push_swap *ps)
+void	case_of_five(t_push_swap *ps)
 {
 	char	*pivot;
 	int		len;
@@ -76,7 +76,7 @@ void	case_of_five(s_push_swap *ps)
 		swap(&ps->stack_a, "sa\n");
 }
 
-void	push_to_b(s_push_swap *ps)
+void	push_to_b(t_push_swap *ps)
 {
 	int		i;
 
@@ -102,7 +102,7 @@ void	push_to_b(s_push_swap *ps)
 		push(&ps->stack_a, &ps->stack_b, "pb\n");
 }
 
-void	more_than_five(s_push_swap *ps)
+void	more_than_five(t_push_swap *ps)
 {
 	if (ps->len <= 20)
 		ps->median = ps->len / 2;
