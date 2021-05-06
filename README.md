@@ -16,10 +16,6 @@ This project will make you sort data on a stack with the help of another stack, 
 - rrb : reverse rotate b - Shift all element of pile B by 1 toward the bottom. The last element becomes the first.
 - rrr : rra and rrb simultaneously.
 
-```bash
-pip install foobar
-```
-
 ## Usage
 - git clone the repository
 ```bash
