@@ -17,6 +17,7 @@ This project will make you sort data on a stack with the help of another stack, 
 - rrr : rra and rrb simultaneously.
 
 ## Usage
+
 - git clone the repository
 ```bash
 make
